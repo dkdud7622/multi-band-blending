@@ -2,7 +2,11 @@ import cv2
 import numpy as np
 
 def getMask(img) :
-    _,Mask = cv2.threshold(cv2.cvtColor((255 - img),cv2.COLOR_BGR2GRAY),1,255,cv2.THRESH_BINARY) # color reverse
+    # Output is 2-dim
+    _,Mask = cv2.threshold(cv2.cvtColor((255 - img),cv2.COLOR_BGR2GRAY),1,255,cv2.THRESH_BINARY)
+    Mask = 255-Mask
+    # Make 3-Channel 
+    Mask = cv2.merge((Mask,Mask,Mask))
     return Mask
 
 def makeGaussianPyr(img,deep,shapes = None) :
@@ -36,6 +40,8 @@ def multiBlending(img1,img2,Mask,deep) :
     gpImg2=[]
     lpImg1=[]
     lpImg2=[]
+
+    # normalize
     img1 = img1/255
     img2 = img2/255
     Mask = Mask/255
@@ -70,7 +76,11 @@ def main() :
     mask = cv2.imread("./data/mask.png")
     result = multiBlending(img1,img2,mask,deep=10)
     cv2.imwrite("data/result.png",result)
+    
 
+    testMask = cv2.imread("./data/testMask.png")
+    binaryMask = getMask(testMask)
+    cv2.imwrite("data/binaryMask.png",binaryMask)
 
 if __name__ == "__main__":
     main()
