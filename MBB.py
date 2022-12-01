@@ -77,10 +77,10 @@ def main() :
     result = multiBlending(img1,img2,mask,deep=10)
     cv2.imwrite("data/result.png",result)
     
-
-    testMask = cv2.imread("./data/testMask.png")
-    binaryMask = getMask(testMask)
-    cv2.imwrite("data/binaryMask.png",binaryMask)
+    # If you want change to your Mask to binary maks, use here 
+    # testMask = cv2.imread("./data/testMask.png")
+    # binaryMask = getMask(testMask)
+    # cv2.imwrite("data/binaryMask.png",binaryMask)
 
 if __name__ == "__main__":
     main()
