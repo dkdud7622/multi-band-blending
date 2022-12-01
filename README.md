@@ -35,7 +35,8 @@ if your Mask Image Not binary, you can use this function to make binary Mask.
 ##### Input
 ![testMask](https://user-images.githubusercontent.com/80615126/204948162-fd4f9317-4861-4339-948b-5483f1bc5969.png)
 ##### Output
-![binaryMask](https://user-images.githubusercontent.com/80615126/204948196-f18f13cf-1a23-42a2-a5a8-ee0482236671.png)
+![binaryMask](https://user-images.githubusercontent.com/80615126/204948424-9a8539d9-ef24-42fc-8fb0-1920d07b7413.png)
+
 
 # Reference
 https://docs.opencv.org/4.x/dc/dff/tutorial_py_pyramids.html
